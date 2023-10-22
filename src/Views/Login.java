@@ -4,16 +4,17 @@
  */
 package Views;
 
+import Controllers.UsuarioController;
+import Models.UsuarioModel;
 import Views.CustomView.CustomDialog;
-import java.awt.Dimension;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
 
 /**
  *
  * @author 000093883
  */
 public class Login extends javax.swing.JFrame {
+    
+    UsuarioController user = new UsuarioController();
 
     /**
      * Creates new form Login
@@ -23,7 +24,6 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Inicio de sesión");
-        
     }
 
     /**
@@ -46,13 +46,11 @@ public class Login extends javax.swing.JFrame {
         labelCorreo = new javax.swing.JLabel();
         botonPanel = new javax.swing.JPanel();
         labelBotonIngresar = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         Correo = new LIB.FSTexFieldMD();
-        fSPasswordFieldMD1 = new LIB.FSPasswordFieldMD();
+        Password = new LIB.FSPasswordFieldMD();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        RegistrarUsuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,7 +98,7 @@ public class Login extends javax.swing.JFrame {
         LabelPassword.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         LabelPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelPassword.setText("Contraseña:");
-        PanelInformacion.add(LabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 360, 57));
+        PanelInformacion.add(LabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 420, 57));
 
         IconoCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconoCorreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/arroba.png"))); // NOI18N
@@ -109,7 +107,7 @@ public class Login extends javax.swing.JFrame {
 
         IconoCandado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         IconoCandado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/candado.png"))); // NOI18N
-        PanelInformacion.add(IconoCandado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 50, 57));
+        PanelInformacion.add(IconoCandado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 50, 57));
 
         labelCorreo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         labelCorreo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -121,6 +119,7 @@ public class Login extends javax.swing.JFrame {
 
         labelBotonIngresar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         labelBotonIngresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBotonIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar.png"))); // NOI18N
         labelBotonIngresar.setText("INGRESAR");
         labelBotonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelBotonIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,20 +127,9 @@ public class Login extends javax.swing.JFrame {
                 labelBotonIngresarMouseClicked(evt);
             }
         });
-        botonPanel.add(labelBotonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
+        botonPanel.add(labelBotonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 60));
 
-        PanelInformacion.add(botonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, 60));
-
-        jPanel2.setBackground(new java.awt.Color(255, 222, 3));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("OLVIDO CONTRASEÑA");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
-
-        PanelInformacion.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 200, 60));
+        PanelInformacion.add(botonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 420, 60));
 
         Correo.setForeground(new java.awt.Color(0, 0, 0));
         Correo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -151,22 +139,28 @@ public class Login extends javax.swing.JFrame {
         Correo.setPlaceholder("ejemplo@ejemplo.com");
         PanelInformacion.add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 320, 60));
 
-        fSPasswordFieldMD1.setForeground(new java.awt.Color(0, 0, 0));
-        fSPasswordFieldMD1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        fSPasswordFieldMD1.setBordeColorFocus(new java.awt.Color(55, 0, 179));
-        fSPasswordFieldMD1.setBordeColorNoFocus(new java.awt.Color(255, 255, 255));
-        fSPasswordFieldMD1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fSPasswordFieldMD1.setPlaceholder("");
-        PanelInformacion.add(fSPasswordFieldMD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 320, 60));
+        Password.setForeground(new java.awt.Color(0, 0, 0));
+        Password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Password.setBordeColorFocus(new java.awt.Color(55, 0, 179));
+        Password.setBordeColorNoFocus(new java.awt.Color(255, 255, 255));
+        Password.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        Password.setPlaceholder("****************");
+        PanelInformacion.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 320, 60));
 
         jPanel1.add(PanelInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 440, 630));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grupo.png"))); // NOI18N
         jMenu1.setText("Usuarios");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/agregar-contacto.png"))); // NOI18N
-        jMenuItem1.setText("Registrar usuario");
-        jMenu1.add(jMenuItem1);
+        RegistrarUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        RegistrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/agregar-contacto.png"))); // NOI18N
+        RegistrarUsuario.setText("Registrar usuario");
+        RegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(RegistrarUsuario);
 
         jMenuBar1.add(jMenu1);
 
@@ -187,9 +181,30 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelBotonIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBotonIngresarMouseClicked
-        JDialog dialog = new CustomDialog(this, true);
-        dialog.setVisible(true);
+        UsuarioModel dataResult = user.getUser(new Object[]{Correo.getText(), Password.getText()});
+        if(dataResult != null && (dataResult.getRoleID() == 1 || dataResult.getRoleID() == 2)){
+            CustomDialog d = new CustomDialog(this, true, "Admin-Jefe", "Bienvenido de nuevo", -1);
+            d.setLocationRelativeTo(null);
+            d.setVisible(true);
+            new DashboardView(dataResult).setVisible(true);
+            this.dispose();
+        }else if(dataResult != null && dataResult.getRoleID() != 1){
+            CustomDialog d = new CustomDialog(this, true, "Empleado", "Bienvenido de nuevo", -1);
+            d.setLocationRelativeTo(null);
+            d.setVisible(true);
+            new UserView(dataResult).setVisible(true);
+            this.dispose();
+        }else{
+            CustomDialog d = new CustomDialog(this, true, "Error", "Usuario no existente en la base de datos", 0);
+            d.setLocationRelativeTo(null);
+            d.setVisible(true);
+        }
     }//GEN-LAST:event_labelBotonIngresarMouseClicked
+
+    private void RegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarUsuarioActionPerformed
+        InsertUsuarioView v = new InsertUsuarioView();
+        v.setVisible(true);
+    }//GEN-LAST:event_RegistrarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,7 +232,6 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Login().setVisible(true);
@@ -231,16 +245,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelPassword;
     private javax.swing.JPanel PanelIconos;
     private javax.swing.JPanel PanelInformacion;
+    private LIB.FSPasswordFieldMD Password;
+    private javax.swing.JMenuItem RegistrarUsuario;
     private javax.swing.JPanel botonPanel;
-    private LIB.FSPasswordFieldMD fSPasswordFieldMD1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelBotonIngresar;
     private javax.swing.JLabel labelCorreo;
     // End of variables declaration//GEN-END:variables
