@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
+import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
@@ -27,29 +28,61 @@ public class CustomDialog extends javax.swing.JDialog {
      */
     public static final int RET_OK = 1;
 
+    
+    public static final int DEFAULT_OPTION = -1;
+    public static final int ERROR_OPTION = 0;
+    public static final int SUCCESS_OPTION = 1;
+    public static final int WARNING_OPTION = 2;
+    public static final int QUESTION_OPTION = 3;
+    public static final String PATH = "\\Images\\eliminar.png";
+
     /**
      * Creates new form CustomDialog
+     *
+     * @param parent
+     * @param modal
      */
     public CustomDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
         // Close the dialog when Esc is pressed
         String cancelName = "cancel";
         InputMap inputMap = getRootPane().getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), cancelName);
         ActionMap actionMap = getRootPane().getActionMap();
         actionMap.put(cancelName, new AbstractAction() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 doClose(RET_CANCEL);
             }
         });
     }
-    
+
     public CustomDialog(java.awt.Frame parent, boolean modal, String Title, String Message, int IconOption) {
         super(parent, modal);
         initComponents();
-
+        this.Title.setText(Title);
+        this.Message.setText("<html><p>" + Message + "</p></html>");
+        switch (IconOption) {
+            case -1:
+                Icon.setIcon(new ImageIcon(getClass().getResource("/Images/cubeta.png")));
+                break;
+            case 0:
+                Icon.setIcon(new ImageIcon(getClass().getResource("/Images/eliminar.png")));
+                break;
+            case 1:
+                Icon.setIcon(new ImageIcon(getClass().getResource("/Images/comprobar.png")));
+                break;
+            case 2:
+                Icon.setIcon(new ImageIcon(getClass().getResource("/Images/advertencia.png")));
+                break;
+            case 3:
+                Icon.setIcon(new ImageIcon(getClass().getResource("/Images/preguntar.png")));
+                break;
+            default:
+                Icon.setIcon(new ImageIcon(getClass().getResource("/Images/cubeta.png")));
+                break;
+        }
         // Close the dialog when Esc is pressed
         String cancelName = "cancel";
         InputMap inputMap = getRootPane().getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
@@ -120,7 +153,6 @@ public class CustomDialog extends javax.swing.JDialog {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         Message.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        Message.setText("<html><p>Hola como estas, esto es una prueba de html en java</p></html>");
         Message.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -139,7 +171,6 @@ public class CustomDialog extends javax.swing.JDialog {
 
         Title.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title.setText("Success");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -219,7 +250,7 @@ public class CustomDialog extends javax.swing.JDialog {
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         doClose(RET_CANCEL);
     }//GEN-LAST:event_CancelButtonActionPerformed
-    
+
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);
