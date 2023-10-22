@@ -9,6 +9,7 @@ import Controllers.TareaController;
 import Controllers.UsuarioController;
 import Models.UsuarioModel;
 import Views.CustomView.CustomDialog;
+import Views.CustomView.EvidenciasTareasView;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -65,6 +66,7 @@ public class TareaView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Salir = new rojeru_san.RSButton();
+        Evidencias = new rojeru_san.RSButton();
         rSPanelShadow1 = new rojeru_san.RSPanelShadow();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -94,16 +96,27 @@ public class TareaView extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cubeta.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 70));
 
-        Salir.setBackground(new java.awt.Color(3, 218, 197));
+        Salir.setBackground(new java.awt.Color(176, 0, 32));
         Salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cerrar-sesion.png"))); // NOI18N
         Salir.setText("Salir");
-        Salir.setColorText(new java.awt.Color(0, 0, 0));
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalirActionPerformed(evt);
             }
         });
         jPanel2.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 240, -1));
+
+        Evidencias.setBackground(new java.awt.Color(3, 218, 197));
+        Evidencias.setForeground(new java.awt.Color(0, 0, 0));
+        Evidencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/garrapata.png"))); // NOI18N
+        Evidencias.setText("Adjuntar evidencias");
+        Evidencias.setColorText(new java.awt.Color(0, 0, 0));
+        Evidencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EvidenciasActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Evidencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 240, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 570));
 
@@ -164,6 +177,11 @@ public class TareaView extends javax.swing.JFrame {
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 420, -1));
 
         TareaAsignacion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        TareaAsignacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TareaAsignacionActionPerformed(evt);
+            }
+        });
         jPanel4.add(TareaAsignacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 380, 50));
 
         EncargadoAsignacion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -232,6 +250,14 @@ public class TareaView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_SalirActionPerformed
 
+    private void TareaAsignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TareaAsignacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TareaAsignacionActionPerformed
+
+    private void EvidenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EvidenciasActionPerformed
+        new EvidenciasTareasView(this, true, user).setVisible(true);
+    }//GEN-LAST:event_EvidenciasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -271,6 +297,7 @@ public class TareaView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ColoniaCreacion;
     private LIB.FSTexFieldMD Descripcion;
     private javax.swing.JComboBox<String> EncargadoAsignacion;
+    private rojeru_san.RSButton Evidencias;
     private rojeru_san.RSButton GuardarAsignacion;
     private rojeru_san.RSButton GuardarCreacion;
     private rojeru_san.RSButton Salir;

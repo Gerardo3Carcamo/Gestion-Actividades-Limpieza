@@ -4,8 +4,11 @@
  */
 package Views.CustomView;
 
+import Controllers.UsuarioController;
+import Models.UsuarioModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
@@ -18,6 +21,8 @@ import javax.swing.KeyStroke;
  */
 public class AgregarFlotillaView extends javax.swing.JDialog {
 
+    UsuarioModel user = new UsuarioModel();
+    HashMap<String, Integer> usersMap = new UsuarioController().getUsersMap();
     /**
      * A return status code - returned if Cancel button has been pressed
      */
@@ -43,6 +48,27 @@ public class AgregarFlotillaView extends javax.swing.JDialog {
             public void actionPerformed(ActionEvent e) {
                 doClose(RET_CANCEL);
             }
+        });
+        
+    }
+    public AgregarFlotillaView(java.awt.Frame parent, boolean modal, UsuarioModel user) {
+        super(parent, modal);
+        initComponents();
+
+        // Close the dialog when Esc is pressed
+        String cancelName = "cancel";
+        InputMap inputMap = getRootPane().getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), cancelName);
+        ActionMap actionMap = getRootPane().getActionMap();
+        actionMap.put(cancelName, new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                doClose(RET_CANCEL);
+            }
+        });
+        this.user = user;
+        this.Empleados.removeAllItems();
+        this.usersMap.forEach((x, y) ->{
+            this.Empleados.addItem(x);
         });
     }
 
@@ -104,6 +130,7 @@ public class AgregarFlotillaView extends javax.swing.JDialog {
         jLabel1.setText("Empleado:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 394, -1));
 
+        Empleados.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jPanel1.add(Empleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 390, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,6 +155,11 @@ public class AgregarFlotillaView extends javax.swing.JDialog {
     }//GEN-LAST:event_closeDialog
 
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
+        Object[] data = new Object[]{
+            user.getUserID(),
+            usersMap.get(Empleados.getSelectedItem().toString())
+        };
+        new UsuarioController().assignEmployees(data);
         doClose(RET_OK);
     }//GEN-LAST:event_OKButtonActionPerformed
 
@@ -152,7 +184,7 @@ public class AgregarFlotillaView extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

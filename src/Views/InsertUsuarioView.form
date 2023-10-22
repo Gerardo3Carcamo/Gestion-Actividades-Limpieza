@@ -119,6 +119,9 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c6" green="da" red="3" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Images/guardar-el-archivo.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="colorText" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -142,7 +145,7 @@
               <Font name="Roboto" size="26" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Repita la contrase&#xf1;a"/>
+            <Property name="text" type="java.lang.String" value="Repita la contrase&#xf1;a:"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -180,9 +183,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="bordeColorNoFocus" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="24" style="0"/>
             </Property>
             <Property name="placeholder" type="java.lang.String" value=""/>
             <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -222,9 +228,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="bordeColorNoFocus" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="24" style="0"/>
             </Property>
             <Property name="placeholder" type="java.lang.String" value=""/>
             <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

@@ -63,16 +63,16 @@
             <Component class="rojeru_san.RSButton" name="VerTareas">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c5" green="da" red="3" type="rgb"/>
+                  <Color blue="20" green="0" red="b0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/cerrar-sesion.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cerrar"/>
-                <Property name="colorText" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerTareasActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="510" width="240" height="-1"/>

@@ -4,6 +4,8 @@
  */
 package Services;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.sql.PreparedStatement;
@@ -79,6 +81,8 @@ public class SQLService<T>{
                 java.util.Date utilDate = (Date) o;
                 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
                 pst.setDate(i, sqlDate);
+            }else if(o instanceof FileInputStream){
+                pst.setBinaryStream(i, (InputStream) o);
             }else{
                 throw new IllegalArgumentException("Tipo no soportado: " + o.getClass().getName() != null ? o.getClass().getName() : "Error de tipo");
             }

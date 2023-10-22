@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
 public class TareasPendientesTableModel extends AbstractTableModel {
     
     private final List<TareaModel> tareas;
-    private final String[] columnNames = new String[]{"Descripcion", "Fecha"};
+    private final String[] columnNames = new String[]{"Descripcion", "Fecha", "Estado"};
     
     public TareasPendientesTableModel(List<TareaModel> tareas) {
         this.tareas = tareas;
@@ -44,6 +44,8 @@ public class TareasPendientesTableModel extends AbstractTableModel {
                 return p.getDescripcion();
             case 1:
                 return p.getFecha();
+            case 2:
+                return p.getEstado();
             default:
                 return null;
         }

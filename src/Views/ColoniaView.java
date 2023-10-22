@@ -72,17 +72,16 @@ public class ColoniaView extends javax.swing.JFrame {
         });
         jPanel2.add(Refrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 240, -1));
 
-        Volver.setBackground(new java.awt.Color(3, 218, 197));
+        Volver.setBackground(new java.awt.Color(176, 0, 32));
         Volver.setForeground(new java.awt.Color(0, 0, 0));
         Volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cerrar-sesion.png"))); // NOI18N
         Volver.setText("Cerrar ventana");
-        Volver.setColorText(new java.awt.Color(0, 0, 0));
         Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VolverActionPerformed(evt);
             }
         });
-        jPanel2.add(Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 240, -1));
+        jPanel2.add(Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 240, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cubeta.png"))); // NOI18N

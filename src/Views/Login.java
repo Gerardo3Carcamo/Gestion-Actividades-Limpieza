@@ -119,6 +119,7 @@ public class Login extends javax.swing.JFrame {
 
         labelBotonIngresar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         labelBotonIngresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBotonIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/entrar.png"))); // NOI18N
         labelBotonIngresar.setText("INGRESAR");
         labelBotonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelBotonIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,12 +143,13 @@ public class Login extends javax.swing.JFrame {
         Password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Password.setBordeColorFocus(new java.awt.Color(55, 0, 179));
         Password.setBordeColorNoFocus(new java.awt.Color(255, 255, 255));
-        Password.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Password.setPlaceholder("");
+        Password.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        Password.setPlaceholder("****************");
         PanelInformacion.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 320, 60));
 
         jPanel1.add(PanelInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 440, 630));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grupo.png"))); // NOI18N
         jMenu1.setText("Usuarios");
 
         RegistrarUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -180,14 +182,14 @@ public class Login extends javax.swing.JFrame {
 
     private void labelBotonIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBotonIngresarMouseClicked
         UsuarioModel dataResult = user.getUser(new Object[]{Correo.getText(), Password.getText()});
-        if(dataResult != null && dataResult.getRoleID() == 1){
-            CustomDialog d = new CustomDialog(this, true, "Bienvenido", "Bienvenido de nuevo", -1);
+        if(dataResult != null && (dataResult.getRoleID() == 1 || dataResult.getRoleID() == 2)){
+            CustomDialog d = new CustomDialog(this, true, "Admin-Jefe", "Bienvenido de nuevo", -1);
             d.setLocationRelativeTo(null);
             d.setVisible(true);
             new DashboardView(dataResult).setVisible(true);
             this.dispose();
         }else if(dataResult != null && dataResult.getRoleID() != 1){
-            CustomDialog d = new CustomDialog(this, true, "Bienvenido", "Bienvenido de nuevo", -1);
+            CustomDialog d = new CustomDialog(this, true, "Empleado", "Bienvenido de nuevo", -1);
             d.setLocationRelativeTo(null);
             d.setVisible(true);
             new UserView(dataResult).setVisible(true);

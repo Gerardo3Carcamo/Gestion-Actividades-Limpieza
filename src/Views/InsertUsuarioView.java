@@ -88,6 +88,7 @@ public class InsertUsuarioView extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 430, 470, -1));
 
         Guardar.setBackground(new java.awt.Color(3, 218, 198));
+        Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/guardar-el-archivo.png"))); // NOI18N
         Guardar.setText("Guardar");
         Guardar.setColorText(new java.awt.Color(0, 0, 0));
         Guardar.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -100,7 +101,7 @@ public class InsertUsuarioView extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 26)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Repita la contraseña");
+        jLabel6.setText("Repita la contraseña:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 460, -1));
 
         Role.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -110,8 +111,9 @@ public class InsertUsuarioView extends javax.swing.JFrame {
         jPanel1.add(Role, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 270, 50));
 
         Pass1.setForeground(new java.awt.Color(0, 0, 0));
-        Pass1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Pass1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         Pass1.setBordeColorNoFocus(new java.awt.Color(0, 0, 0));
+        Pass1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         Pass1.setPlaceholder("");
         Pass1.setSelectedTextColor(new java.awt.Color(102, 153, 255));
         jPanel1.add(Pass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 350, 50));
@@ -124,8 +126,9 @@ public class InsertUsuarioView extends javax.swing.JFrame {
         jPanel1.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 350, 50));
 
         Pass2.setForeground(new java.awt.Color(0, 0, 0));
-        Pass2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Pass2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         Pass2.setBordeColorNoFocus(new java.awt.Color(0, 0, 0));
+        Pass2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         Pass2.setPlaceholder("");
         Pass2.setSelectedTextColor(new java.awt.Color(102, 153, 255));
         jPanel1.add(Pass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 350, 50));

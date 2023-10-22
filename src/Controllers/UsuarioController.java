@@ -124,5 +124,43 @@ public class UsuarioController {
         }
         return map;
     }
+    
+    public boolean assignEmployees(Object[] data){
+        String query = "Insert into jefesempleados values(?,?)";
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            sqlService.Differentiate(pst, data);
+            pst.executeUpdate();
+            
+        }catch(SQLException ex){
+            
+        }
+        String queryUpdate = "Update empleados set JefeID = ?";
+        try{
+            PreparedStatement pst = connection.prepareStatement(queryUpdate);
+            sqlService.Differentiate(pst, data);
+            pst.executeUpdate();
+            return true;
+        }catch(SQLException ex){
+           return false; 
+        }
+        
+    }
+    
+    public List<UsuarioModel> getCuadrilla(UsuarioModel user){
+        String query = "SELECT u.* FROM gestion.jefesempleados as j " +
+                        "inner join empleados as e " +
+                        "on j.EmpleadoID = e.EmpleadoID " +
+                        "inner join usuarios as u " +
+                        "on e.EmpleadoID = u.UserID "
+                + "where j.JefeID = " + user.getUserID();
+        List<UsuarioModel> list = new ArrayList<>();
+        try {
+            list = sqlService.DynamicGetListMethod(query, connection);
+        } catch (InstantiationException | IllegalAccessException | NoSuchFieldException | SQLException ex) {
+            Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 
 }

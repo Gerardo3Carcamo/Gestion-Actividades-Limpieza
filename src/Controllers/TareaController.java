@@ -8,6 +8,7 @@ import Database.DatabaseConnection;
 import Models.TareaModel;
 import Models.UsuarioModel;
 import Services.SQLService;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -29,7 +30,7 @@ public class TareaController {
     SQLService<TareaModel> sqlService = new SQLService<>(TareaModel.class);
 
     public List<TareaModel> getTareas() {
-        String query = "Select * from tareas";
+        String query = "Select TareaID, Descripcion, Fecha, Estado, ColoniaID from tareas";
         List<TareaModel> list = new ArrayList<>();
         try {
             list = sqlService.DynamicGetListMethod(query, connection);
@@ -38,10 +39,10 @@ public class TareaController {
         }
         return list;
     }
-
+ 
     public HashMap<String, Integer> getTareasMap() {
         HashMap<String, Integer> map = new HashMap<>();
-        String query = "Select * from tareas";
+        String query = "Select TareaID, Descripcion, Fecha, Estado, ColoniaID from tareas";
         try {
             sqlService.DynamicGetListMethod(query, connection).forEach(x -> {
                 map.put(x.getDescripcion(), x.getTareaID());
@@ -52,7 +53,7 @@ public class TareaController {
     }
 
     public List<TareaModel> getTareasAsignadas(int empleadoID) {
-        String query = "select t.Descripcion, a.FechaAsignacion as Fecha "
+        String query = "select t.Descripcion, a.FechaAsignacion as Fecha, t.Estado as Estado "
                 + "from asignaciontareas as a "
                 + "inner join Tareas as t "
                 + "on a.TareaID = t.TareaID "
@@ -79,12 +80,12 @@ public class TareaController {
     }
 
     public boolean insertAsignacionTareas(int id, Object[] data) {
-        String empleados = "Select EmpleadoID as UserID from jefesEmpleados where JefeID = " + String.valueOf(id);
+         String empleados = "Select EmpleadoID as UserID from jefesEmpleados where JefeID = " + String.valueOf(id);
         List<UsuarioModel> users = new ArrayList<>();
         try {
             SQLService<UsuarioModel> service = new SQLService<>(UsuarioModel.class);
             users = service.DynamicGetListMethod(empleados, connection);
-        } catch (Exception ex) {
+        } catch (IllegalAccessException | InstantiationException | NoSuchFieldException | SQLException ex) {
 
         }
         String query = "Insert into AsignacionTareas (TareaID, EmpleadoID, FechaAsignacion) values (?,?,?)";
@@ -92,9 +93,9 @@ public class TareaController {
             PreparedStatement pst = connection.prepareStatement(query);
             users.forEach(x -> {
                 Object[] aux = new Object[]{
-                    (int)data[0],
-                    (int)x.getUserID(),
-                    (Date)new Date()
+                    (int) data[0],
+                    (int) x.getUserID(),
+                    (Date) new Date()
                 };
                 try {
                     sqlService.Differentiate(pst, aux);
@@ -103,6 +104,21 @@ public class TareaController {
                     Logger.getLogger(TareaController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
+            String updateStatus = "update tareas set Estado = 'Asignada' where TareaID = " + String.valueOf(data[0]);
+            PreparedStatement pstUpdate = connection.prepareStatement(updateStatus);
+            pstUpdate.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+
+    public boolean insertImage(int tareaID, FileInputStream image) {
+        String query = "Update tareas set Estado = 'Completado', imagen = ? where TareaID = " + String.valueOf(tareaID);
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            sqlService.Differentiate(pst, new Object[]{(FileInputStream) image});
+            pst.executeUpdate();
             return true;
         } catch (SQLException ex) {
             return false;

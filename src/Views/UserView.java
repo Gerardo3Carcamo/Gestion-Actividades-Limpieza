@@ -70,10 +70,14 @@ public class UserView extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(98, 0, 238));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        VerTareas.setBackground(new java.awt.Color(3, 218, 197));
+        VerTareas.setBackground(new java.awt.Color(176, 0, 32));
         VerTareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cerrar-sesion.png"))); // NOI18N
-        VerTareas.setText("Cerrar");
-        VerTareas.setColorText(new java.awt.Color(0, 0, 0));
+        VerTareas.setText("Cerrar sesión");
+        VerTareas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerTareasActionPerformed(evt);
+            }
+        });
         jPanel2.add(VerTareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 240, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -149,6 +153,12 @@ public class UserView extends javax.swing.JFrame {
     private void RecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecargarActionPerformed
         getTareasPendientes();
     }//GEN-LAST:event_RecargarActionPerformed
+
+    private void VerTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerTareasActionPerformed
+        new Login().setVisible(true);
+        this.user = null;
+        this.dispose();
+    }//GEN-LAST:event_VerTareasActionPerformed
 
     void getTareasPendientes(){
         List<TareaModel> list = new TareaController().getTareasAsignadas(user.getUserID());

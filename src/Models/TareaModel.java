@@ -4,6 +4,7 @@
  */
 package Models;
 
+import java.io.FileInputStream;
 import java.util.Date;
 
 /**
@@ -17,6 +18,16 @@ public class TareaModel {
     private Date Fecha;
     private String Estado;
     private int ColoniaID;
+    private FileInputStream Imagen;
+
+    public FileInputStream getImagen() {
+        return Imagen;
+    }
+
+    public void setImagen(FileInputStream Imagen) {
+        this.Imagen = Imagen;
+    }
+    
 
     public int getTareaID() {
         return TareaID;

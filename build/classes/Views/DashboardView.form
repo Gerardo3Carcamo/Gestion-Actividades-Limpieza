@@ -76,6 +76,9 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerMiFlotillaActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="110" width="240" height="-1"/>
@@ -145,6 +148,47 @@
                 </Constraint>
               </Constraints>
             </Component>
+            <Component class="rojeru_san.RSButton" name="Graficar">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c5" green="da" red="3" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/barra-grafica.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ver graficas"/>
+                <Property name="colorText" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GraficarActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="290" width="240" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="rojeru_san.RSButton" name="CerrarSesion">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="20" green="0" red="b0" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/cerrar-sesion.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CerrarSesionActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="510" width="240" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
             <Component class="rojeru_san.RSButton" name="Tareas">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -163,7 +207,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="290" width="240" height="-1"/>
+                  <AbsoluteConstraints x="0" y="350" width="240" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -172,7 +216,7 @@
         <Container class="rojeru_san.RSPanelShadow" name="rSPanelShadow1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="240" y="0" width="430" height="290"/>
+              <AbsoluteConstraints x="240" y="0" width="430" height="570"/>
             </Constraint>
           </Constraints>
 
@@ -190,74 +234,87 @@
                 </Constraint>
               </Constraints>
 
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel7" max="32767" attributes="0"/>
-                      <Component id="jPanel8" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel8" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="jPanel7">
+                <Component class="javax.swing.JLabel" name="jLabel2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Roboto" size="32" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Informaci&#xf3;n del usuario"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="0" y="0" width="420" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="Nombre">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Roboto" size="24" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nombre: Gerardo C&#xe1;rcamo"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="10" y="80" width="420" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="Correo">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Roboto" size="24" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Correo: gerca4401@gmail.com"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="10" y="160" width="420" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="Telefono">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Roboto" size="24" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Telefono: 8443832692"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="10" y="240" width="420" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Container class="javax.swing.JPanel" name="jPanel15">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="d2" green="76" red="19" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
 
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="0" pref="420" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="420" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="0" pref="40" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel2">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Roboto" size="18" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="horizontalAlignment" type="int" value="0"/>
-                        <Property name="text" type="java.lang.String" value="Tareas terminadas"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="jPanel8">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="234" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -291,7 +348,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel9" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jPanel10" alignment="0" max="32767" attributes="0"/>
+                      <Component id="chart1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -299,7 +356,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel10" max="32767" attributes="0"/>
+                          <Component id="chart1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -325,108 +382,14 @@
                     </DimensionLayout>
                   </Layout>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel10">
+                <Container class="javax.swing.JPanel" name="chart1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="420" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="234" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                </Container>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Container class="rojeru_san.RSPanelShadow" name="rSPanelShadow3">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="240" y="290" width="430" height="280"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-          <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel5">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                  <BorderConstraints direction="Center"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel11" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jPanel12" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel12" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JPanel" name="jPanel11">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d2" green="76" red="19" type="rgb"/>
-                    </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="420" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                </Container>
-                <Container class="javax.swing.JPanel" name="jPanel12">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="224" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
                 </Container>
               </SubComponents>
             </Container>
@@ -457,7 +420,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel13" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jPanel14" alignment="0" max="32767" attributes="0"/>
+                      <Component id="chart2" alignment="0" pref="420" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -465,7 +428,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel14" max="32767" attributes="0"/>
+                          <Component id="chart2" pref="224" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -491,10 +454,13 @@
                     </DimensionLayout>
                   </Layout>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel14">
+                <Container class="javax.swing.JPanel" name="chart2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[520, 234]"/>
                     </Property>
                   </Properties>
 
