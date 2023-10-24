@@ -22,7 +22,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author 000093883
  */
 public class DashboardView extends javax.swing.JFrame {
-    
+
     UsuarioModel user = new UsuarioModel();
 
     /**
@@ -34,12 +34,12 @@ public class DashboardView extends javax.swing.JFrame {
         this.setResizable(false);
         getDataCharts();
     }
-    
+
     public DashboardView(UsuarioModel user) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        if(user.getRoleID() != 1){
+        if (user.getRoleID() != 1) {
             VerCatalogo.setEnabled(false);
         }
         this.user = user;
@@ -329,32 +329,36 @@ public class DashboardView extends javax.swing.JFrame {
         new TareaView(user).setVisible(true);
     }//GEN-LAST:event_TareasActionPerformed
 
-    void getDataCharts(){
+    void getDataCharts() {
         List<ChartModel> listPorMes = new ChartController().getTareasPorMes();
         DefaultCategoryDataset datos = new DefaultCategoryDataset();
-        listPorMes.forEach(x->{
+        listPorMes.forEach(x -> {
             datos.setValue(x.getConteo(), x.getNombre(), "Mes: " + String.valueOf(x.getMes()));
         });
-        JFreeChart chart = ChartFactory.createBarChart("Tareas asignadas del mes: " , "", "", datos, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart chart = ChartFactory.createBarChart("Tareas asignadas del mes: ", "", "", datos, PlotOrientation.VERTICAL, true, true, false);
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new Dimension(520, 234));
         chart1.setLayout(new BorderLayout());
         chart1.add(chartPanel, BorderLayout.NORTH);
-        
-        List<ChartModel> listPorMesCompletadas = new ChartController().getTareasPorMes();
+
+        List<ChartModel> listPorMesCompletadas = new ChartController().getTareasCompletadasPorMes();
         DefaultCategoryDataset datos2 = new DefaultCategoryDataset();
-        listPorMesCompletadas.forEach(x->{
+        listPorMesCompletadas.forEach(x -> {
             datos2.setValue(x.getConteo(), x.getNombre(), "Mes: " + String.valueOf(x.getMes()));
         });
-        JFreeChart chartBar2 = ChartFactory.createBarChart("Tareas completadas del mes: " , "", "", datos2, PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart chartBar2 = ChartFactory.createBarChart("Tareas completadas del mes: ", "", "", datos2, PlotOrientation.VERTICAL, true, true, false);
         ChartPanel chartPanel2 = new ChartPanel(chartBar2);
         chartPanel2.setPreferredSize(new Dimension(520, 215));
         chart2.setLayout(new BorderLayout());
         chart2.add(chartPanel2, BorderLayout.NORTH);
+        chartPanel.repaint();
+        chartPanel2.repaint();
         pack();
+        revalidate();
         repaint();
+
     }
-    
+
     /**
      * @param args the command line arguments
      */

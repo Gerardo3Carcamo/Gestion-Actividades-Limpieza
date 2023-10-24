@@ -107,6 +107,7 @@ public class AgregarColonia extends javax.swing.JDialog {
         jLabel1.setText("Codigo Postal:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 394, -1));
 
+        CP.setForeground(new java.awt.Color(0, 0, 0));
         CP.setBordeColorFocus(new java.awt.Color(55, 0, 179));
         CP.setBordeColorNoFocus(new java.awt.Color(0, 0, 0));
         CP.setFont(new java.awt.Font("Roboto", 0, 22)); // NOI18N
@@ -118,6 +119,7 @@ public class AgregarColonia extends javax.swing.JDialog {
         jLabel2.setText("Nombre de la colonia:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 113, 394, -1));
 
+        Nombre.setForeground(new java.awt.Color(0, 0, 0));
         Nombre.setBordeColorFocus(new java.awt.Color(55, 0, 179));
         Nombre.setBordeColorNoFocus(new java.awt.Color(0, 0, 0));
         Nombre.setFont(new java.awt.Font("Roboto", 0, 22)); // NOI18N

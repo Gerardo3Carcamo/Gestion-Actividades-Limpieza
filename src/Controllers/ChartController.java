@@ -25,23 +25,23 @@ public class ChartController {
     public List<ChartModel> getTareasPorMes(){
         List<ChartModel> list = new ArrayList<>();
         String query = "SELECT  " +
-                        "    u.Nombre AS Nombre, " +
-                        "    MONTH(t.Fecha) as Mes, " +
-                        "    COUNT(at.TareaID) as Conteo " +
-                        "FROM  " +
-                        "    jefes j " +
-                        "JOIN  " +
-                        "    usuarios u ON j.JefeID = u.UserID " +
-                        "JOIN  " +
-                        "    jefesempleados je ON j.JefeID = je.JefeID " +
-                        "JOIN  " +
-                        "    empleados e ON je.EmpleadoID = e.EmpleadoID " +
-                        "JOIN  " +
-                        "    asignaciontareas at ON e.EmpleadoID = at.EmpleadoID " +
-                        "JOIN " +
-                        "    tareas t ON at.TareaID = t.TareaID " +
-                        "GROUP BY  " +
-                        "    u.Nombre, MONTH(t.Fecha);";
+               "    u.Nombre AS Nombre, " +
+               "    MONTH(t.Fecha) as Mes, " +
+               "    COUNT(DISTINCT t.TareaID) as Conteo " +
+               "FROM  " +
+               "    jefes j " +
+               "JOIN  " +
+               "    usuarios u ON j.JefeID = u.UserID " +
+               "JOIN  " +
+               "    jefesempleados je ON j.JefeID = je.JefeID " +
+               "JOIN  " +
+               "    empleados e ON je.EmpleadoID = e.EmpleadoID " +
+               "JOIN  " +
+               "    asignaciontareas at ON e.EmpleadoID = at.EmpleadoID " +
+               "JOIN " +
+               "    tareas t ON at.TareaID = t.TareaID " +
+               "GROUP BY  " +
+               "    u.Nombre, MONTH(t.Fecha);";
         try{
             list = sqlService.DynamicGetListMethod(query, connection);
             return list;
@@ -53,17 +53,17 @@ public class ChartController {
     public List<ChartModel> getTareasCompletadasPorMes(){
         List<ChartModel> list = new ArrayList<>();
         String query = "SELECT " +
-                        "    u.Nombre AS Nombre,  " +
-                        "    MONTH(t.Fecha) as Mes, " +
-                        "    COUNT(at.TareaID) as Conteo " +
-                        "FROM jefes j " +
-                        "JOIN usuarios u ON j.JefeID = u.UserID " +
-                        "JOIN jefesempleados je ON j.JefeID = je.JefeID " +
-                        "JOIN empleados e ON je.EmpleadoID = e.EmpleadoID " +
-                        "JOIN asignaciontareas at ON e.EmpleadoID = at.EmpleadoID " +
-                        "JOIN tareas t ON at.TareaID = t.TareaID " +
-                        "WHERE t.Imagen IS NOT NULL " +
-                        "GROUP BY u.Nombre, MONTH(t.Fecha)";
+               "    u.Nombre AS Nombre,  " +
+               "    MONTH(t.Fecha) as Mes, " +
+               "    COUNT(DISTINCT at.TareaID) as Conteo " +
+               "FROM jefes j " +
+               "JOIN usuarios u ON j.JefeID = u.UserID " +
+               "JOIN jefesempleados je ON j.JefeID = je.JefeID " +
+               "JOIN empleados e ON je.EmpleadoID = e.EmpleadoID " +
+               "JOIN asignaciontareas at ON e.EmpleadoID = at.EmpleadoID " +
+               "JOIN tareas t ON at.TareaID = t.TareaID " +
+               "WHERE t.Imagen IS NOT NULL " +
+               "GROUP BY u.Nombre, MONTH(t.Fecha)";
         try{
             list = sqlService.DynamicGetListMethod(query, connection);
             return list;
